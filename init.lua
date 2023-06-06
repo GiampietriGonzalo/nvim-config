@@ -1,0 +1,2 @@
+require("gg")
+print("hello")
