@@ -23,7 +23,7 @@ return require('packer').startup(function(use)
   use( 
 	  'nvim-treesitter/nvim-treesitter',
 	  {rum = ':TSUpdate'}
- 
+	  )
  
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
@@ -44,10 +44,44 @@ return require('packer').startup(function(use)
 	  },
 	  {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-	  -- Autocompletion
-	  {'hrsh7th/nvim-cmp'},     -- Required
-	  {'hrsh7th/cmp-nvim-lsp'}, -- Required
-	  {'L3MON4D3/LuaSnip'},     -- Required
+	   -- Autocompletion
+            {'hrsh7th/nvim-cmp'},         -- Required
+            {'hrsh7th/cmp-nvim-lsp'},     -- Required
+            {'hrsh7th/cmp-buffer'},       -- Optional
+            {'hrsh7th/cmp-path'},         -- Optional
+            {'saadparwaiz1/cmp_luasnip'}, -- Optional
+            {'hrsh7th/cmp-nvim-lua'},     -- Optional
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},             -- Required
+            {'rafamadriz/friendly-snippets'}, -- Optionalk
   }
 }
+
+use {
+    "williamboman/mason.nvim",
+    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
+}
+
+use { 'feline-nvim/feline.nvim', branch = '0.5-compat' }
+
+use({
+	"L3MON4D3/LuaSnip",
+	tag = "v<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+	-- install jsregexp (optional!:).
+	run = "make install_jsregexp"
+})
+
+use { 'hrsh7th/cmp-cmdline' }
+
+use { 'folke/which-key.nvim' }
+
+use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+}
+
+use { 'nvim-tree/nvim-web-devicons' }
+use { "rafamadriz/friendly-snippets" }
+use { 'github/copilot.vim' }
 end)
