@@ -71,18 +71,7 @@ local setup = {
     },
 }
 
-local mappings = {
-
-    ["r"] = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Reformat Code" },
-
-    -- Language Support
-    l = {
-        name = "LSP",
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    },
-
-}
+local mappings = {}
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
