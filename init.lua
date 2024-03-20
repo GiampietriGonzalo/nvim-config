@@ -1,2 +1,2 @@
 require("gg")
-print("hello")
+print("hello to my nvim")
